@@ -89,11 +89,14 @@ have it — update the paths in `src/lib/images.ts`.
 The "sample deliverable" slots on the home page and each service page
 (orthomosaic, thermal report, inspection report) are a different case —
 these claim to represent **this company's own work product**, so they use
-generated, clearly-labeled `<IllustrativeDeliverable>` graphics ("Illustrative
-example — not an actual client deliverable") rather than stock photos or an
-empty dashed box. Replace each `<IllustrativeDeliverable variant="..." />`
-with a real `next/image` once you have an actual sample deliverable to show,
-and flip `flags.hasSampleDeliverables` to `true` at the same time.
+real but generic industry-example photography (sourced from Pexels, same
+free-commercial-use terms as the hero/service photography above) stored at
+`public/images/sample-*.jpg` and labeled "Illustrative example — industry
+example photography, not an actual client deliverable" via
+`<IllustrativeDeliverable>`, rather than a fabricated graphic or an empty
+dashed box. Replace the image paths in `sampleDeliverableImages`
+(`src/lib/images.ts`) with a real sample once you have one to show, and flip
+`flags.hasSampleDeliverables` to `true` at the same time.
 
 ### Capability statement PDF
 `src/app/government-enterprise/page.tsx` links to `/capability-statement.pdf`

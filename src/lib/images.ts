@@ -46,3 +46,13 @@ export const fleetImages = {
   enterprise: "/images/fleet-enterprise.jpg",
   thermalSensor: "/images/fleet-thermal-sensor.jpg",
 } as const;
+
+// Industry-example photography standing in for "sample deliverable" slots —
+// real aerial/infrared photography, but never presented as this company's
+// own completed work (see IllustrativeDeliverable.tsx and README.md "Sample
+// deliverable illustrations").
+export const sampleDeliverableImages = {
+  orthomosaic: "/images/sample-orthomosaic.jpg",
+  thermal: "/images/sample-thermal.jpg",
+  inspection: "/images/sample-utility-inspection.jpg",
+} as const;
