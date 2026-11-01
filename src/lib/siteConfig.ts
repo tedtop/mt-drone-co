@@ -15,17 +15,26 @@ export const companyShortName = "Montana Drone Works"; // used where space is ti
 export const companyLegalName = "Montana Drone Works, LLC"; // update once the LLC is actually formed under this name
 
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example-drone-co.com"; // PLACEHOLDER domain
+  // Real, live, working URL (the current Vercel production alias) — not a
+  // fake example.com placeholder. Swap for a custom domain via
+  // NEXT_PUBLIC_SITE_URL once one is purchased; see docs/DEPLOYMENT.md.
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mt-drone-co.vercel.app";
 
 export const contact = {
-  phone: "(406) 555-0100", // PLACEHOLDER — not a working number
-  phoneHref: "+14065550100",
+  phone: "(407) 756-4905", // owner-provided, real working number
+  phoneHref: "+14077564905",
+  // Still placeholder — no real inbox exists at this domain yet. Replace
+  // with a real address the owner actually checks before launch.
   email: "info@example-drone-co.com", // PLACEHOLDER
   proceurementEmail: "contracts@example-drone-co.com", // PLACEHOLDER — for CO/procurement contacts
-  addressLine1: "[STREET ADDRESS]",
+  // No street address published yet (owner hasn't provided one, and
+  // publishing a fabricated or home address without confirmation is a
+  // privacy/liability risk). Leave blank; contact page falls back to a
+  // regional "based in / serving" line instead of a placeholder bracket.
+  addressLine1: "",
   addressCity: "Missoula", // PLACEHOLDER base city — change to wherever the company actually incorporates/operates from
   addressState: "MT",
-  addressZip: "[ZIP]",
+  addressZip: "",
   mailingNote:
     "Mailing address and registered agent to be finalized with LLC formation.",
 };

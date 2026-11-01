@@ -77,8 +77,9 @@ After adding or changing a production env var, redeploy with `vercel --prod`
 
 ## Custom domain setup
 
-Once the owner has a real domain (replacing the placeholder
-`example-drone-co.com` referenced in the README), connect it with either:
+Once the owner has a real domain (replacing the current live
+`mt-drone-co.vercel.app` URL referenced in the README), connect it with
+either:
 
 ```bash
 vercel domains add <domain>

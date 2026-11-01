@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { IllustrativeDeliverable } from "@/components/ui/IllustrativeDeliverable";
 import { PhotoHero } from "@/components/ui/PhotoHero";
 import { CredibilityStrip } from "@/components/CredibilityStrip";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -108,12 +108,12 @@ export default function Home() {
         <SectionHeading
           eyebrow="Sample deliverables"
           title="What a finished deliverable looks like"
-          description="Labeled placeholders below — real sample deliverables (orthomosaic, thermal report, inspection report) will be added here once available. See Safety & Compliance for our current operating status."
+          description="Illustrative examples of our deliverable formats below — real project samples will replace these once available. See Safety & Compliance for our current operating status."
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          <PlaceholderImage label="Sample orthomosaic map" />
-          <PlaceholderImage label="Sample thermal inspection report" />
-          <PlaceholderImage label="Sample utility inspection report" />
+          <IllustrativeDeliverable variant="orthomosaic" label="Orthomosaic map" />
+          <IllustrativeDeliverable variant="thermal" label="Thermal inspection report" />
+          <IllustrativeDeliverable variant="inspection" label="Utility inspection report" />
         </div>
       </Section>
 

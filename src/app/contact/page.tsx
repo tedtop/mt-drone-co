@@ -69,11 +69,19 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-sm font-semibold text-brand-950">Mailing address</dt>
+                <dt className="text-sm font-semibold text-brand-950">
+                  {contact.addressLine1 ? "Mailing address" : "Based in"}
+                </dt>
                 <dd className="mt-1">
-                  {contact.addressLine1}
-                  <br />
-                  {contact.addressCity}, {contact.addressState} {contact.addressZip}
+                  {contact.addressLine1 ? (
+                    <>
+                      {contact.addressLine1}
+                      <br />
+                      {contact.addressCity}, {contact.addressState} {contact.addressZip}
+                    </>
+                  ) : (
+                    <>{contact.addressCity}, {contact.addressState} — serving clients statewide</>
+                  )}
                   <span className="mt-1 block text-sm text-slate-500">
                     {contact.mailingNote}
                   </span>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { IllustrativeDeliverable } from "@/components/ui/IllustrativeDeliverable";
 import { PhotoHero } from "@/components/ui/PhotoHero";
 import { Checklist } from "@/components/ui/Checklist";
 import { getServiceBySlug, services, type Service } from "@/lib/services-data";
@@ -185,11 +185,18 @@ export default async function ServiceDetailPage({
         <SectionHeading
           eyebrow="Sample deliverable"
           title="What a finished deliverable looks like"
-          description="Labeled placeholder below — a real sample deliverable will be added here once available."
+          description="An illustrative example of the deliverable format — a real project sample will replace it once available."
         />
         <div className="mt-10 max-w-xl">
-          <PlaceholderImage
-            label={`Sample ${service.shortTitle.toLowerCase()} deliverable`}
+          <IllustrativeDeliverable
+            variant={
+              service.slug === "thermal-inspection"
+                ? "thermal"
+                : service.category === "inspection"
+                  ? "inspection"
+                  : "orthomosaic"
+            }
+            label={`${service.shortTitle} deliverable`}
           />
         </div>
       </Section>

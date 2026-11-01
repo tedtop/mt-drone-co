@@ -6,7 +6,7 @@ finalized; replace every bracketed placeholder with real data first. -->
 
 # Capability Statement — Template
 
-> **[COMPANY NAME]** · Montana commercial drone (UAS) services
+> **Montana Drone Works** · Montana commercial drone (UAS) services
 > One page, federal-contracting format. Replace all bracketed placeholders
 > before producing a PDF. Do not add past performance, certifications, or
 > years-of-experience claims until they are real — see `src/lib/siteConfig.ts`
@@ -18,12 +18,12 @@ finalized; replace every bracketed placeholder with real data first. -->
 
 | Field | Value |
 |---|---|
-| Legal name | `[COMPANY NAME], LLC` (per `companyLegalName` in `siteConfig.ts`) |
-| DBA / short name | `[COMPANY NAME]` |
-| Address | `[STREET ADDRESS]`, `[CITY]`, MT `[ZIP]` |
-| Phone | `[PHONE]` (per `contact.phone`) |
-| Procurement email | `[PROCUREMENT EMAIL]` (per `contact.proceurementEmail`) |
-| Website | `[SITE URL]` (per `siteUrl`) |
+| Legal name | Montana Drone Works, LLC (per `companyLegalName` in `siteConfig.ts` — confirm once the LLC is actually filed) |
+| DBA / short name | Montana Drone Works |
+| Address | `[STREET ADDRESS]`, `[CITY]`, MT `[ZIP]` — not yet published; fill in once the owner confirms a mailing address |
+| Phone | (407) 756-4905 (per `contact.phone`) |
+| Procurement email | `[PROCUREMENT EMAIL]` — still placeholder in `siteConfig.ts`, needs a real inbox before this goes out |
+| Website | https://mt-drone-co.vercel.app (per `siteUrl` — swap for a custom domain once purchased) |
 | UEI | `[UEI PENDING SAM.GOV REGISTRATION]` |
 | CAGE code | `[CAGE PENDING SAM.GOV REGISTRATION]` |
 | DUNS | `[DUNS — DEPRECATED BY SAM.GOV; OMIT UNLESS A REQUESTING AGENCY SPECIFICALLY ASKS]` |

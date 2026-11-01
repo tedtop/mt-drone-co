@@ -1,4 +1,4 @@
-# [COMPANY NAME] — Montana Drone Services Website
+# Montana Drone Works — Montana Drone Services Website
 
 A Next.js (App Router) + TypeScript + Tailwind marketing/lead-gen site for a
 new Montana commercial drone services company. Static-first, built for
@@ -35,19 +35,23 @@ Everything below is a placeholder. Search the codebase for these exact
 strings to find every occurrence.
 
 ### `src/lib/siteConfig.ts`
-- `companyName`, `companyShortName`, `companyLegalName` — currently
-  `"[COMPANY NAME]"` / `"[COMPANY NAME], LLC"`. This is the single source of
-  truth; the rest of the site reads from here, so changing it here updates
-  the whole site (nav, footer, JSON-LD, metadata, etc).
-- `siteUrl` — placeholder domain `https://www.example-drone-co.com`. Set the
-  real domain via the `NEXT_PUBLIC_SITE_URL` env var, or edit the fallback.
-- `contact.phone` / `contact.phoneHref` — placeholder `(406) 555-0100`
-  (a non-working 555 number on purpose).
-- `contact.email`, `contact.proceurementEmail` — placeholder
-  `@example-drone-co.com` addresses.
-- `contact.addressLine1`, `contact.addressZip` — literal `[STREET ADDRESS]`
-  / `[ZIP]` placeholders. `contact.addressCity` defaults to `"Missoula"` —
-  change to wherever the company actually bases out of.
+- `companyName`, `companyShortName`, `companyLegalName` — set to
+  "Montana Drone Works" / "Montana Drone Works, LLC". This is the single
+  source of truth; the rest of the site reads from here.
+- `siteUrl` — defaults to the live Vercel production URL
+  (`https://mt-drone-co.vercel.app`). Set a custom domain via the
+  `NEXT_PUBLIC_SITE_URL` env var once one is purchased.
+- `contact.phone` / `contact.phoneHref` — real, owner-provided number
+  `(407) 756-4905`.
+- `contact.email`, `contact.proceurementEmail` — **still placeholder**
+  `@example-drone-co.com` addresses — no real inbox exists yet. Replace with
+  a real, checked address before launch.
+- `contact.addressLine1`, `contact.addressZip` — left blank on purpose (no
+  street address has been provided/confirmed for public display); the
+  contact page shows a "based in / serving statewide" line instead.
+  `contact.addressCity` defaults to `"Missoula"` — change to wherever the
+  company actually bases out of, and fill in a street address once the
+  owner wants one published.
 - `social.linkedin` / `instagram` / `youtube` — empty strings. Fill in once
   real accounts exist; the footer only renders an icon for non-empty values
   (icons aren't wired up yet — see "Known gaps" below).
@@ -81,14 +85,15 @@ illustrates them with generic stock photos, not official manufacturer
 images. Swap any of these for real photography/drone imagery whenever you
 have it — update the paths in `src/lib/images.ts`.
 
-### Sample-deliverable placeholders
+### Sample-deliverable illustrations
 The "sample deliverable" slots on the home page and each service page
 (orthomosaic, thermal report, inspection report) are a different case —
-these claim to represent **this company's own work product**, so they stay
-as labeled `PlaceholderImage` components (dashed border, "IMAGE PLACEHOLDER")
-rather than stock photos. Replace each `<PlaceholderImage label="..." />`
-with a real `next/image` only once you have an actual sample deliverable to
-show.
+these claim to represent **this company's own work product**, so they use
+generated, clearly-labeled `<IllustrativeDeliverable>` graphics ("Illustrative
+example — not an actual client deliverable") rather than stock photos or an
+empty dashed box. Replace each `<IllustrativeDeliverable variant="..." />`
+with a real `next/image` once you have an actual sample deliverable to show,
+and flip `flags.hasSampleDeliverables` to `true` at the same time.
 
 ### Capability statement PDF
 `src/app/government-enterprise/page.tsx` links to `/capability-statement.pdf`
@@ -106,16 +111,17 @@ designed icon once brand assets exist.
 
 | Variable | Purpose | Default if unset |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL, used in metadata, JSON-LD, sitemap, robots | `https://www.example-drone-co.com` (placeholder) |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL, used in metadata, JSON-LD, sitemap, robots | `https://mt-drone-co.vercel.app` (live Vercel URL) |
 | `RESEND_API_KEY` | Enables email delivery for the quote form via [Resend](https://resend.com)'s REST API | Unset — submissions are only logged server-side (visible in your hosting provider's function logs), and the user still sees a success message either way |
 | `QUOTE_FORM_TO_EMAIL` | Destination inbox for quote form submissions, once `RESEND_API_KEY` is set | Falls back to `contact.email` in siteConfig.ts |
 | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Enables Plausible analytics if you wire up the script (see "Known gaps") | Unset — no analytics loads |
 | `NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS` | Set to `"true"` to enable Vercel Analytics if you add the `@vercel/analytics` package (see "Known gaps") | Unset — disabled |
 
 Before setting `RESEND_API_KEY`, verify a real sending domain in Resend —
-`src/app/api/quote/route.ts` currently sends `from: "[COMPANY NAME] Website <quotes@yourdomain.com>"`,
-which is a placeholder and will fail to deliver until you replace
-`yourdomain.com` with your verified Resend sending domain.
+`src/app/api/quote/route.ts` currently sends `from: "Montana Drone Works Website <quotes@yourdomain.com>"`,
+where `yourdomain.com` is still a placeholder and will fail to deliver until
+you replace it with your verified Resend sending domain (a Vercel `.vercel.app`
+subdomain cannot be verified in Resend — this needs a real custom domain).
 
 ## Known gaps / things to finish before launch
 
