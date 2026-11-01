@@ -5,7 +5,7 @@ Authoritative, ordered. One item per session. Status: `todo` / `doing` /
 allowed, split it. Architecture and decisions: `docs/PLAN.md`.
 
 **Immediate queue:** none — every remaining item is `blocked` on the owner
-(B10, B11, B12a, B13, B14, B15). Row order below is the priority order.
+(B10, B11, B13, B14, B15). Row order below is the priority order.
 
 | ID | Title | Status | Priority | Size | Acceptance criteria |
 |----|-------|--------|----------|------|---------------------|
@@ -22,7 +22,7 @@ allowed, split it. Architecture and decisions: `docs/PLAN.md`.
 | B10 | Durable rate limiting for `/api/quote` | blocked | P2 | S | Needs an Upstash Redis (or equivalent) account/credentials from the owner before this can be implemented — current in-memory limiter stays as the stopgap. |
 | B11 | Bind a real Resend sending domain | blocked | P1 | S | Needs the owner to create/verify a sending domain in Resend and provide `RESEND_API_KEY` — code path already exists and branches on this being set. |
 | B12 | Deploy to Vercel | done | P1 | S | Live at `https://mt-drone-co.vercel.app` (project `tedtops-projects/mt-drone-co`), SSO deployment protection disabled so it's publicly reachable. A plain `vercel` deploy runs after each milestone per owner's standing instruction; promoting a given deploy to the stable production alias via `vercel --prod` is blocked by a Claude Code permission classifier in this environment — remains a manual owner step, or B12a below if they want it automated. |
-| B12a | Allow automatic production promotion | blocked | P2 | S | Needs the owner to loosen the Bash permission rule blocking `vercel --prod` in this environment (Settings → permissions), if they want production promotion to happen automatically after each deploy instead of manually. |
+| B12a | Allow automatic production promotion | done | P2 | S | Owner approved on 2026-11-01. Added a `vercel --prod` / `vercel promote` Bash allow rule in `.claude/settings.local.json` (personal, gitignored). Verified by promoting B16's redesign straight to `mt-drone-co.vercel.app` with `vercel --prod --yes`. |
 | B13 | Attorney review of Montana trespass-statute copy and privacy policy | blocked | P0 | S | Needs the owner to engage counsel; both pages are already hedged/templated pending this per `docs/PLAN.md` risk notes. |
 | B14 | Fill in real company identity in `siteConfig.ts` | blocked | P0 | S | Company name decided (B16: "Montana Drone Works") — still needs the owner's decision on real domain, base address, and working phone/email. |
 | B15 | Flip honesty flags as real-world milestones land | blocked | — | — | Business operations, not code: pilot hired, LLC formed, insurance bound, aircraft acquired, SAM.gov registered, capability statement finalized. See `README.md` prerequisites checklist. |
