@@ -14,7 +14,7 @@ npm run dev
 ```
 
 Open http://localhost:3000. `npm run build` produces the production build;
-`npm run lint` runs ESLint.
+`npm run lint` runs ESLint; `npm test` runs the Vitest unit test suite.
 
 ## How the honesty system works
 

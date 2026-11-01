@@ -33,7 +33,7 @@ const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
 const submissionsByIp = new Map<string, number[]>();
 
-function isRateLimited(ip: string): boolean {
+export function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const timestamps = (submissionsByIp.get(ip) ?? []).filter(
     (t) => now - t < RATE_LIMIT_WINDOW_MS
@@ -51,17 +51,54 @@ function getClientIp(request: NextRequest): string {
   return "unknown";
 }
 
-function validate(body: QuoteSubmission): string | null {
-  if (!body.service || !body.service.trim()) return "Missing service type.";
-  if (!body.location || !body.location.trim()) return "Missing location.";
-  if (!body.timeline || !body.timeline.trim()) return "Missing timeline.";
-  if (body.requesterType !== "private" && body.requesterType !== "government") {
-    return "Missing or invalid requester type.";
+// Pure validation + spam-guard check for a quote submission. No I/O, no
+// side effects — safe to unit test directly. `now` is injectable so the
+// timing guard can be tested deterministically.
+export type QuoteValidationResult =
+  | { status: "spam" }
+  | { status: "invalid"; error: string }
+  | { status: "valid" };
+
+export function validateQuoteSubmission(
+  body: QuoteSubmission,
+  now: number = Date.now()
+): QuoteValidationResult {
+  // Honeypot: if filled in, it's a bot. Caller should pretend success
+  // without processing anything — don't tip bots off that they were caught.
+  const honeypotFilled = Boolean(body.company_website && body.company_website.trim());
+
+  // Bot-timing heuristic: flag submissions that come back implausibly fast.
+  const elapsed =
+    typeof body.formRenderedAt === "number" ? now - body.formRenderedAt : 0;
+  const tooFast = typeof body.formRenderedAt === "number" && elapsed < MIN_SUBMIT_MS;
+
+  if (honeypotFilled || tooFast) {
+    return { status: "spam" };
   }
-  if (!body.name || !body.name.trim()) return "Missing name.";
-  if (!body.email || !EMAIL_RE.test(body.email.trim())) return "Missing or invalid email.";
-  if (!body.message || !body.message.trim()) return "Missing project details.";
-  return null;
+
+  if (!body.service || !body.service.trim()) {
+    return { status: "invalid", error: "Missing service type." };
+  }
+  if (!body.location || !body.location.trim()) {
+    return { status: "invalid", error: "Missing location." };
+  }
+  if (!body.timeline || !body.timeline.trim()) {
+    return { status: "invalid", error: "Missing timeline." };
+  }
+  if (body.requesterType !== "private" && body.requesterType !== "government") {
+    return { status: "invalid", error: "Missing or invalid requester type." };
+  }
+  if (!body.name || !body.name.trim()) {
+    return { status: "invalid", error: "Missing name." };
+  }
+  if (!body.email || !EMAIL_RE.test(body.email.trim())) {
+    return { status: "invalid", error: "Missing or invalid email." };
+  }
+  if (!body.message || !body.message.trim()) {
+    return { status: "invalid", error: "Missing project details." };
+  }
+
+  return { status: "valid" };
 }
 
 export async function POST(request: NextRequest) {
@@ -83,22 +120,15 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Honeypot: if filled in, it's a bot. Pretend success without processing
-  // anything — don't tip bots off that they were caught.
-  const honeypotFilled = Boolean(body.company_website && body.company_website.trim());
+  const validation = validateQuoteSubmission(body);
 
-  // Bot-timing heuristic: reject submissions that come back implausibly fast.
-  const elapsed =
-    typeof body.formRenderedAt === "number" ? Date.now() - body.formRenderedAt : 0;
-  const tooFast = typeof body.formRenderedAt === "number" && elapsed < MIN_SUBMIT_MS;
-
-  if (honeypotFilled || tooFast) {
+  if (validation.status === "spam") {
+    // Pretend success without processing anything — don't tip bots off.
     return NextResponse.json({ ok: true });
   }
 
-  const validationError = validate(body);
-  if (validationError) {
-    return NextResponse.json({ ok: false, error: validationError }, { status: 400 });
+  if (validation.status === "invalid") {
+    return NextResponse.json({ ok: false, error: validation.error }, { status: 400 });
   }
 
   const submission = {
