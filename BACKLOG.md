@@ -4,9 +4,10 @@ Authoritative, ordered. One item per session. Status: `todo` / `doing` /
 `review` / `done` / `blocked`. Sizes: S (1-3 h), M (3-6 h); L is not
 allowed, split it. Architecture and decisions: `docs/PLAN.md`.
 
-**Immediate queue (P0):** B04, B05, B06. Row order below is the priority
-order. `blocked` items sit at the bottom and are skipped by the loop until
-the owner unblocks them (see each one's criteria for what's needed).
+**Immediate queue:** B07 (the only remaining non-blocked item). Row order
+below is the priority order. `blocked` items sit at the bottom and are
+skipped by the loop until the owner unblocks them (see each one's criteria
+for what's needed).
 
 | ID | Title | Status | Priority | Size | Acceptance criteria |
 |----|-------|--------|----------|------|---------------------|
@@ -21,7 +22,8 @@ the owner unblocks them (see each one's criteria for what's needed).
 | B09 | Deployment prep doc (Vercel — confirmed hosting target) | done | P2 | S | `docs/DEPLOYMENT.md` listing exact steps to deploy to Vercel (env vars to set, domain setup, any `vercel.json` needed) — informational prep only, doesn't deploy anything. |
 | B10 | Durable rate limiting for `/api/quote` | blocked | P2 | S | Needs an Upstash Redis (or equivalent) account/credentials from the owner before this can be implemented — current in-memory limiter stays as the stopgap. |
 | B11 | Bind a real Resend sending domain | blocked | P1 | S | Needs the owner to create/verify a sending domain in Resend and provide `RESEND_API_KEY` — code path already exists and branches on this being set. |
-| B12 | Deploy to Vercel | blocked | P1 | S | Needs the owner's Vercel account/project and a decision on the real domain; `docs/DEPLOYMENT.md` (B09) will have the steps ready. |
+| B12 | Deploy to Vercel | done | P1 | S | Live at `https://mt-drone-co.vercel.app` (project `tedtops-projects/mt-drone-co`), SSO deployment protection disabled so it's publicly reachable. A plain `vercel` deploy runs after each milestone per owner's standing instruction; promoting a given deploy to the stable production alias via `vercel --prod` is blocked by a Claude Code permission classifier in this environment — remains a manual owner step, or B12a below if they want it automated. |
+| B12a | Allow automatic production promotion | blocked | P2 | S | Needs the owner to loosen the Bash permission rule blocking `vercel --prod` in this environment (Settings → permissions), if they want production promotion to happen automatically after each deploy instead of manually. |
 | B13 | Attorney review of Montana trespass-statute copy and privacy policy | blocked | P0 | S | Needs the owner to engage counsel; both pages are already hedged/templated pending this per `docs/PLAN.md` risk notes. |
 | B14 | Fill in real company identity in `siteConfig.ts` | blocked | P0 | S | Needs the owner's decision on final company name, domain, base address, and contact info. |
 | B15 | Flip honesty flags as real-world milestones land | blocked | — | — | Business operations, not code: pilot hired, LLC formed, insurance bound, aircraft acquired, SAM.gov registered, capability statement finalized. See `README.md` prerequisites checklist. |
