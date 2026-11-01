@@ -86,17 +86,19 @@ images. Swap any of these for real photography/drone imagery whenever you
 have it — update the paths in `src/lib/images.ts`.
 
 ### Sample-deliverable illustrations
-The "sample deliverable" slots on the home page and each service page
-(orthomosaic, thermal report, inspection report) are a different case —
-these claim to represent **this company's own work product**, so they use
-real but generic industry-example photography (sourced from Pexels, same
-free-commercial-use terms as the hero/service photography above) stored at
-`public/images/sample-*.jpg` and labeled "Illustrative example — industry
-example photography, not an actual client deliverable" via
-`<IllustrativeDeliverable>`, rather than a fabricated graphic or an empty
-dashed box. Replace the image paths in `sampleDeliverableImages`
-(`src/lib/images.ts`) with a real sample once you have one to show, and flip
-`flags.hasSampleDeliverables` to `true` at the same time.
+The "sample deliverable" slot on the home page (3 generic examples) and on
+each service detail page (1 per service, matched to that service — e.g.
+wildfire imagery on the wildfire page, a festival aerial shot on the event
+coverage page) is a different case — these claim to represent **this
+company's own work product**, so they use real but generic industry-example
+photography (sourced from Pexels, same free-commercial-use terms as the
+hero/service photography above) stored at `public/images/sample-*.jpg` and
+labeled "Example output — industry example photography, not an actual
+client deliverable" via `<IllustrativeDeliverable>`, rather than a
+fabricated graphic or an empty dashed box. `sampleDeliverableImages` in
+`src/lib/images.ts` maps each service slug to its image; replace an entry
+with a real sample once you have one to show for that service, and flip
+`flags.hasSampleDeliverables` to `true` once all of them are real.
 
 ### Capability statement PDF
 `src/app/government-enterprise/page.tsx` links to `/capability-statement.pdf`

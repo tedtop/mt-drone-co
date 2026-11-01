@@ -7,7 +7,7 @@ import { CredibilityStrip } from "@/components/CredibilityStrip";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/lib/services-data";
 import { companyName } from "@/lib/siteConfig";
-import { heroImages } from "@/lib/images";
+import { heroImages, homeSampleDeliverables } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Montana Commercial Drone Services",
@@ -111,9 +111,9 @@ export default function Home() {
           description="Illustrative examples of our deliverable formats below — real project samples will replace these once available. See Safety & Compliance for our current operating status."
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          <IllustrativeDeliverable variant="orthomosaic" label="Orthomosaic map" />
-          <IllustrativeDeliverable variant="thermal" label="Thermal inspection report" />
-          <IllustrativeDeliverable variant="inspection" label="Utility inspection report" />
+          {homeSampleDeliverables.map((d) => (
+            <IllustrativeDeliverable key={d.label} src={d.src} label={d.label} />
+          ))}
         </div>
       </Section>
 

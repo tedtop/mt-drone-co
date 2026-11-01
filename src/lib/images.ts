@@ -48,11 +48,29 @@ export const fleetImages = {
 } as const;
 
 // Industry-example photography standing in for "sample deliverable" slots —
-// real aerial/infrared photography, but never presented as this company's
-// own completed work (see IllustrativeDeliverable.tsx and README.md "Sample
-// deliverable illustrations").
-export const sampleDeliverableImages = {
-  orthomosaic: "/images/sample-orthomosaic.jpg",
-  thermal: "/images/sample-thermal.jpg",
-  inspection: "/images/sample-utility-inspection.jpg",
-} as const;
+// real aerial/infrared/on-the-ground photography relevant to each service,
+// but never presented as this company's own completed work (see
+// IllustrativeDeliverable.tsx and README.md "Sample deliverable
+// illustrations"). Keyed by service slug so each service page shows imagery
+// actually relevant to that service rather than one generic set.
+export const sampleDeliverableImages: Record<string, { src: string; label: string }> = {
+  "aerial-photo-video": { src: "/images/sample-aerialvideo.jpg", label: "Cinematic aerial photography" },
+  "mapping-photogrammetry": { src: "/images/sample-orthomosaic.jpg", label: "Orthomosaic map" },
+  "surveying-support": { src: "/images/sample-surveying.jpg", label: "Aerial survey data capture" },
+  "utility-power-line-inspection": { src: "/images/sample-utility-inspection.jpg", label: "Utility inspection imagery" },
+  "thermal-inspection": { src: "/images/sample-thermal.jpg", label: "Thermal inspection imagery" },
+  "wildfire-prescribed-burn-support": { src: "/images/sample-wildfire.jpg", label: "Wildfire reconnaissance imagery" },
+  "construction-progress-monitoring": { src: "/images/sample-construction.jpg", label: "Construction progress capture" },
+  "real-estate-land": { src: "/images/sample-realestate.jpg", label: "Real estate aerial imagery" },
+  "agriculture-land-management": { src: "/images/sample-agriculture.jpg", label: "Agricultural field imagery" },
+  "search-rescue-public-safety": { src: "/images/sample-searchrescue.jpg", label: "Search and rescue terrain imagery" },
+  "event-coverage": { src: "/images/sample-event.jpg", label: "Event aerial coverage" },
+  "training-consulting": { src: "/images/sample-training.jpg", label: "Flight operations training" },
+};
+
+// The 3 shown on the home page's generic "what a deliverable looks like" strip.
+export const homeSampleDeliverables = [
+  { src: "/images/sample-orthomosaic.jpg", label: "Orthomosaic map" },
+  { src: "/images/sample-thermal.jpg", label: "Thermal inspection report" },
+  { src: "/images/sample-utility-inspection.jpg", label: "Utility inspection report" },
+];

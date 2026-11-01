@@ -70,5 +70,5 @@
   for exactly what each needs.
 
 <!-- usage:start -->
-Usage (tokens, excl. cache reads): this session 161k | last 5h 4.71M | budget not set
+Usage (tokens, excl. cache reads): this session 583k | last 5h 2.20M | budget not set
 <!-- usage:end -->

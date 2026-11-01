@@ -8,7 +8,7 @@ import { PhotoHero } from "@/components/ui/PhotoHero";
 import { Checklist } from "@/components/ui/Checklist";
 import { getServiceBySlug, services, type Service } from "@/lib/services-data";
 import { companyLegalName, siteUrl } from "@/lib/siteConfig";
-import { serviceImages } from "@/lib/images";
+import { sampleDeliverableImages, serviceImages } from "@/lib/images";
 
 type RouteParams = { slug: string };
 
@@ -189,14 +189,8 @@ export default async function ServiceDetailPage({
         />
         <div className="mt-10 max-w-xl">
           <IllustrativeDeliverable
-            variant={
-              service.slug === "thermal-inspection"
-                ? "thermal"
-                : service.category === "inspection"
-                  ? "inspection"
-                  : "orthomosaic"
-            }
-            label={`${service.shortTitle} deliverable`}
+            src={sampleDeliverableImages[service.slug].src}
+            label={`${service.shortTitle} — ${sampleDeliverableImages[service.slug].label}`}
           />
         </div>
       </Section>
