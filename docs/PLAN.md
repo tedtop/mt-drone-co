@@ -76,6 +76,29 @@ remaining work.
    per-item AskUserQuestion review gate. `CLAUDE.md`'s build loop is
    customized accordingly — see that file's "Autonomous mode" note. Owner
    will check in periodically for a status/backlog review instead.
+9. 2026-11-01 — Owner confirmed Vercel as the hosting target and asked for
+   a `vercel` deploy after each milestone so they can review live. New
+   Vercel projects default to SSO deployment protection on every
+   environment (including production) — disabled via
+   `vercel project protection disable mt-drone-co --sso` so the site is
+   publicly reachable without a Vercel login. Separately, this Claude Code
+   environment's own permission settings block `vercel --prod` (a
+   "Production Deploy" classifier) — plain `vercel` deploys (preview, or
+   production on the very first deploy of a project) remain available and
+   are what the loop uses; promoting a later deploy to the stable
+   production alias is a manual owner step (B12a in `BACKLOG.md` if they
+   want that automated instead).
+10. 2026-11-01 — B07 accessibility pass: added an `accent-700` color token
+    (darker amber) because the original `accent-500` failed WCAG AA
+    contrast (3.18:1, need 4.5:1) as both button text-on-background and as
+    small text on light backgrounds. Buttons/CTAs now use accent-600 (base)
+    / accent-700 (hover); text-only accent usage on light backgrounds uses
+    accent-600. Also fixed several `/NN` opacity-based text colors
+    (PlaceholderImage captions) and two slate shades used against the wrong
+    background (slate-400 on white, slate-500 on dark) — opacity-blended
+    and shade-by-feel text colors are risky for contrast and worth
+    avoiding in future additions; prefer a solid shade picked against the
+    actual background it sits on.
 
 ## Risks
 

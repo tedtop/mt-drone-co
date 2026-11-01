@@ -94,7 +94,7 @@ export default function Home() {
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {howWeWork.map((item) => (
             <div key={item.step}>
-              <p className="text-3xl font-bold text-accent-500">{item.step}</p>
+              <p className="text-3xl font-bold text-accent-600">{item.step}</p>
               <h3 className="mt-2 text-lg font-bold text-brand-950">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
                 {item.description}

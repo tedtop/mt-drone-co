@@ -33,10 +33,10 @@ export function PlaceholderImage({
             d="M3 16.5V7.5A1.5 1.5 0 0 1 4.5 6h15A1.5 1.5 0 0 1 21 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 16.5Zm0 0 5.5-5.5a1.5 1.5 0 0 1 2.12 0L15 15.38m0 0 1.88-1.88a1.5 1.5 0 0 1 2.12 0L21 15.5M9 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
           />
         </svg>
-        <p className="mt-2 text-xs font-medium text-brand-700/70">
+        <p className="mt-2 text-xs font-medium text-brand-700">
           IMAGE PLACEHOLDER
         </p>
-        <p className="text-xs text-brand-700/60">{label}</p>
+        <p className="text-xs text-brand-700">{label}</p>
       </div>
     </div>
   );

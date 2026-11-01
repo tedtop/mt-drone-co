@@ -4,10 +4,8 @@ Authoritative, ordered. One item per session. Status: `todo` / `doing` /
 `review` / `done` / `blocked`. Sizes: S (1-3 h), M (3-6 h); L is not
 allowed, split it. Architecture and decisions: `docs/PLAN.md`.
 
-**Immediate queue:** B07 (the only remaining non-blocked item). Row order
-below is the priority order. `blocked` items sit at the bottom and are
-skipped by the loop until the owner unblocks them (see each one's criteria
-for what's needed).
+**Immediate queue:** none — every remaining item is `blocked` on the owner
+(B10, B11, B12a, B13, B14, B15). Row order below is the priority order.
 
 | ID | Title | Status | Priority | Size | Acceptance criteria |
 |----|-------|--------|----------|------|---------------------|
@@ -17,7 +15,7 @@ for what's needed).
 | B04 | Unit tests for `/api/quote` validation logic | done | P0 | S | A test runner (Vitest, minimal config) covers: honeypot rejection, timing-guard rejection, each required-field-missing case, invalid email rejection, and the happy path producing `{ok:true}`. `npm test` (new script) passes in CI-less local run. |
 | B05 | Playwright smoke tests for key pages | done | P0 | M | Using the pre-installed Playwright, a smoke suite loads `/`, one service page, one city page, `/government-enterprise`, and `/quote`, checks for a 200/expected heading, and exercises the quote form's client-side validation (submit empty → sees inline errors). Runs against `next build && next start` or `next dev`. |
 | B06 | Per-page dynamic OG images for services and cities | done | P1 | M | `src/app/services/[slug]/opengraph-image.tsx` and `src/app/service-area/[slug]/opengraph-image.tsx` generate a 1200x630 image per service/city (title + category/region), reusing the root image's visual style. Verified by hitting each route and checking image dimensions/content-type. |
-| B07 | Accessibility pass (WCAG AA) | todo | P1 | M | Manual + automated (axe via Playwright) check across the 5 template types (home, service detail, city detail, long-form page, form page): color contrast, focus visibility, heading order, form label/ARIA association, skip link. Fixes applied; no new regressions in B05's smoke suite. |
+| B07 | Accessibility pass (WCAG AA) | done | P1 | M | `e2e/a11y.spec.ts` (axe-core via Playwright, wcag2a+wcag2aa tags) scans all 5 template types + the form page with zero violations, and was spot-checked against every other page too. Fixed: button/CTA text-on-accent-500 contrast (3.18:1) → accent-600/700, step-number and eyebrow text-accent-500 on light backgrounds → accent-600, Checklist note text-slate-400 → slate-600, PlaceholderImage caption opacity text → solid brand-700, Footer copyright bar slate-500-on-dark → slate-400. Manually verified: skip link (already present), focus-ring on all interactive elements except the intentionally-unfocusable honeypot, heading order, and form label/ARIA association (already solid from the original build). No regressions in B05's smoke suite. |
 | B08 | Draft capability-statement PDF template | done | P1 | S | A `docs/capability-statement-template.md` (or generated PDF) with bracketed placeholder fields (UEI, CAGE, NAICS, differentiators, past performance) matching the on-page summary in `/government-enterprise`, ready for the owner to fill in once SAM.gov registration is underway. Not linked from the live site yet (that still requires `flags.capabilityStatementAvailable`). |
 | B09 | Deployment prep doc (Vercel — confirmed hosting target) | done | P2 | S | `docs/DEPLOYMENT.md` listing exact steps to deploy to Vercel (env vars to set, domain setup, any `vercel.json` needed) — informational prep only, doesn't deploy anything. |
 | B10 | Durable rate limiting for `/api/quote` | blocked | P2 | S | Needs an Upstash Redis (or equivalent) account/credentials from the owner before this can be implemented — current in-memory limiter stays as the stopgap. |

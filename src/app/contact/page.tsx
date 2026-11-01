@@ -38,7 +38,7 @@ export default function ContactPage() {
               <div>
                 <dt className="text-sm font-semibold text-brand-950">Phone</dt>
                 <dd className="mt-1">
-                  <a href={`tel:${contact.phoneHref}`} className="text-accent-600 hover:text-accent-500">
+                  <a href={`tel:${contact.phoneHref}`} className="focus-ring text-accent-600 hover:text-accent-700">
                     {contact.phone}
                   </a>
                 </dd>
@@ -46,7 +46,7 @@ export default function ContactPage() {
               <div>
                 <dt className="text-sm font-semibold text-brand-950">General inquiries</dt>
                 <dd className="mt-1">
-                  <a href={`mailto:${contact.email}`} className="text-accent-600 hover:text-accent-500">
+                  <a href={`mailto:${contact.email}`} className="focus-ring text-accent-600 hover:text-accent-700">
                     {contact.email}
                   </a>
                 </dd>
@@ -58,7 +58,7 @@ export default function ContactPage() {
                 <dd className="mt-1">
                   <a
                     href={`mailto:${contact.proceurementEmail}`}
-                    className="text-accent-600 hover:text-accent-500"
+                    className="focus-ring text-accent-600 hover:text-accent-700"
                   >
                     {contact.proceurementEmail}
                   </a>

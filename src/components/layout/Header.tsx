@@ -25,7 +25,7 @@ export function Header() {
           className="focus-ring flex items-center gap-2 text-lg font-bold text-white"
         >
           <span
-            className="flex h-8 w-8 items-center justify-center rounded bg-accent-500 text-sm font-black text-white"
+            className="flex h-8 w-8 items-center justify-center rounded bg-accent-600 text-sm font-black text-white"
             aria-hidden="true"
           >
             MT
@@ -54,7 +54,7 @@ export function Header() {
           </a>
           <Link
             href="/quote"
-            className="focus-ring rounded-md bg-accent-500 px-4 py-2 text-sm font-semibold text-white hover:bg-accent-600"
+            className="focus-ring rounded-md bg-accent-600 px-4 py-2 text-sm font-semibold text-white hover:bg-accent-700"
           >
             Request a Quote
           </Link>
@@ -93,7 +93,7 @@ export function Header() {
             ))}
             <Link
               href="/quote"
-              className="focus-ring mt-2 rounded-md bg-accent-500 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-accent-600"
+              className="focus-ring mt-2 rounded-md bg-accent-600 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-accent-700"
               onClick={() => setOpen(false)}
             >
               Request a Quote

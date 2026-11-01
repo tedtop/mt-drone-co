@@ -169,7 +169,7 @@ export default async function ServiceDetailPage({
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {service.process.map((step, index) => (
             <div key={step}>
-              <p className="text-3xl font-bold text-accent-500">
+              <p className="text-3xl font-bold text-accent-600">
                 {String(index + 1).padStart(2, "0")}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">

@@ -117,7 +117,7 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-2 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-2 py-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} {companyName}. All rights reserved.</p>
           <p>
             Operations conducted only where FAA-authorized. See{" "}

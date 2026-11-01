@@ -453,7 +453,7 @@ export function QuoteForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-accent-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-600 disabled:cursor-not-allowed disabled:opacity-60"
+        className="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-accent-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-700 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Request a Quote"}
       </button>

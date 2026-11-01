@@ -31,7 +31,7 @@ const insuranceAnswer = flags.insuranceLiability || flags.hasPart107Pilot ? (
     than with a blanket &quot;yes&quot;: our FAA Part 107 pilot and our
     liability insurance are being put in place before we take on our first
     commercial flight, not claimed in advance. See our{" "}
-    <Link href="/safety-compliance" className="font-semibold text-accent-600 hover:text-accent-500">
+    <Link href="/safety-compliance" className="font-semibold text-accent-600 hover:text-accent-700">
       Safety &amp; Compliance
     </Link>{" "}
     page for exactly where each of those stands right now.
@@ -41,7 +41,7 @@ const insuranceAnswer = flags.insuranceLiability || flags.hasPart107Pilot ? (
 const ownAircraftAnswer = flags.hasAircraft ? (
   <p>
     Yes — we operate our own FAA-registered aircraft. See our{" "}
-    <Link href="/safety-compliance" className="font-semibold text-accent-600 hover:text-accent-500">
+    <Link href="/safety-compliance" className="font-semibold text-accent-600 hover:text-accent-700">
       Safety &amp; Compliance
     </Link>{" "}
     page for details.
@@ -54,7 +54,7 @@ const ownAircraftAnswer = flags.hasAircraft ? (
     fleet and billing to justify it. This lets us match the aircraft
     (standard, thermal, LiDAR, etc.) to the job instead of whatever we
     happen to already own. Our{" "}
-    <Link href="/safety-compliance" className="font-semibold text-accent-600 hover:text-accent-500">
+    <Link href="/safety-compliance" className="font-semibold text-accent-600 hover:text-accent-700">
       Safety &amp; Compliance
     </Link>{" "}
     page tracks our progress toward owning a fleet directly.
@@ -89,7 +89,7 @@ const faqs: Faq[] = [
         flight plan, and deliverable format vary a lot by project. Every job
         gets a custom quote based on location, scope, timeline, and the
         deliverables you need. Use our{" "}
-        <Link href="/quote" className="font-semibold text-accent-600 hover:text-accent-500">
+        <Link href="/quote" className="font-semibold text-accent-600 hover:text-accent-700">
           quote request form
         </Link>{" "}
         to get a quote scoped to your project.
@@ -105,7 +105,7 @@ const faqs: Faq[] = [
         our{" "}
         <Link
           href="/government-enterprise"
-          className="font-semibold text-accent-600 hover:text-accent-500"
+          className="font-semibold text-accent-600 hover:text-accent-700"
         >
           Government &amp; Enterprise
         </Link>{" "}
@@ -118,7 +118,7 @@ const faqs: Faq[] = [
     answer: (
       <p>
         See our{" "}
-        <Link href="/service-area" className="font-semibold text-accent-600 hover:text-accent-500">
+        <Link href="/service-area" className="font-semibold text-accent-600 hover:text-accent-700">
           Service Area
         </Link>{" "}
         page for the cities and regions we currently cover. If your project

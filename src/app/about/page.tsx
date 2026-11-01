@@ -95,7 +95,7 @@ export default function AboutPage() {
           </p>
           <p>
             See our{" "}
-            <Link href="/service-area" className="font-semibold text-accent-600 hover:text-accent-500">
+            <Link href="/service-area" className="font-semibold text-accent-600 hover:text-accent-700">
               service area
             </Link>{" "}
             for where we currently operate.
@@ -128,7 +128,7 @@ export default function AboutPage() {
             See our{" "}
             <Link
               href="/safety-compliance"
-              className="font-semibold text-accent-600 hover:text-accent-500"
+              className="font-semibold text-accent-600 hover:text-accent-700"
             >
               Safety &amp; Compliance
             </Link>{" "}

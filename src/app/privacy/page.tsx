@@ -145,7 +145,7 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-2">
               Questions about this policy or your information can be sent to{" "}
-              <a href={`mailto:${contact.email}`} className="font-semibold text-accent-600 hover:text-accent-500">
+              <a href={`mailto:${contact.email}`} className="focus-ring font-semibold text-accent-600 hover:text-accent-700">
                 {contact.email}
               </a>
               .

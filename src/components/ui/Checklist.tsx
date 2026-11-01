@@ -26,7 +26,7 @@ export function Checklist({ items }: { items: ChecklistItem[] }) {
               {item.label}
             </span>
             {item.note ? (
-              <span className="block text-sm text-slate-400">{item.note}</span>
+              <span className="block text-sm text-slate-600">{item.note}</span>
             ) : null}
           </span>
         </li>
