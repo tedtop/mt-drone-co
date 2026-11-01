@@ -67,12 +67,28 @@ strings to find every occurrence.
   `false` — do not flip it or add a specific statute citation without that
   verification.
 
-### Imagery
-Every image slot on the site is a labeled `PlaceholderImage` component
-(dashed border, "IMAGE PLACEHOLDER" + a description) — no stock photography
-or scraped competitor images were used anywhere. Replace each
-`<PlaceholderImage label="..." />` with a real `next/image` once you have
-real photography, drone imagery, orthomosaics, thermal reports, etc.
+### Stock photography
+Hero backgrounds, service/city card thumbnails, and the Fleet &amp; Equipment
+page use free stock photography (sourced from Pexels — free for commercial
+use, no attribution required) stored locally in `public/images/` and
+referenced from `src/lib/images.ts`. This is generic, atmospheric/subject-
+matter imagery (drones in flight, Montana landscapes, power lines, solar
+panels, etc) — **never** presented as photos of this company's own completed
+projects, aircraft, or staff. No scraped competitor images or copyrighted
+brand/product photography (e.g. official DJI marketing photos) were used;
+the "Fleet & Equipment" page names real equipment classes in text but
+illustrates them with generic stock photos, not official manufacturer
+images. Swap any of these for real photography/drone imagery whenever you
+have it — update the paths in `src/lib/images.ts`.
+
+### Sample-deliverable placeholders
+The "sample deliverable" slots on the home page and each service page
+(orthomosaic, thermal report, inspection report) are a different case —
+these claim to represent **this company's own work product**, so they stay
+as labeled `PlaceholderImage` components (dashed border, "IMAGE PLACEHOLDER")
+rather than stock photos. Replace each `<PlaceholderImage label="..." />`
+with a real `next/image` only once you have an actual sample deliverable to
+show.
 
 ### Capability statement PDF
 `src/app/government-enterprise/page.tsx` links to `/capability-statement.pdf`

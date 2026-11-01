@@ -7,6 +7,7 @@ import { companyShortName, contact } from "@/lib/siteConfig";
 
 const navLinks = [
   { href: "/services", label: "Services" },
+  { href: "/fleet", label: "Fleet" },
   { href: "/service-area", label: "Service Area" },
   { href: "/government-enterprise", label: "Government & Enterprise" },
   { href: "/safety-compliance", label: "Safety & Compliance" },

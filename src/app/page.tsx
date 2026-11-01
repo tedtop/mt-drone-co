@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { CredibilityStrip } from "@/components/CredibilityStrip";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/lib/services-data";
 import { companyName } from "@/lib/siteConfig";
+import { heroImages } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Montana Commercial Drone Services",
@@ -43,33 +45,31 @@ const howWeWork = [
 export default function Home() {
   return (
     <>
-      <section className="bg-topo relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
-        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
-              Montana Commercial Drone Services
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              Aerial data and imagery for the people who build, maintain, and protect Montana.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              {companyName} provides commercial drone services across Montana —
-              aerial photo and video, mapping and photogrammetry, utility and
-              thermal inspection, and on-call support for wildfire and public
-              safety agencies. Built from day one around FAA compliance and
-              government-contracting readiness.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/quote" variant="primary">
-                Request a Quote
-              </Button>
-              <Button href="/government-enterprise" variant="ghost" className="ring-white/30 text-white hover:bg-white/10">
-                Government &amp; Enterprise
-              </Button>
-            </div>
+      <PhotoHero image={heroImages.home}>
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
+            Montana Commercial Drone Services
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            Aerial data and imagery for the people who build, maintain, and protect Montana.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+            {companyName} provides commercial drone services across Montana —
+            aerial photo and video, mapping and photogrammetry, utility and
+            thermal inspection, and on-call support for wildfire and public
+            safety agencies. Built from day one around FAA compliance and
+            government-contracting readiness.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Button href="/quote" variant="primary">
+              Request a Quote
+            </Button>
+            <Button href="/government-enterprise" variant="ghost" className="ring-white/30 text-white hover:bg-white/10">
+              Government &amp; Enterprise
+            </Button>
           </div>
         </div>
-      </section>
+      </PhotoHero>
 
       <CredibilityStrip />
 

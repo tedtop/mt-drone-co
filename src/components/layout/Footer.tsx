@@ -106,6 +106,7 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold text-white">Company</p>
           <ul className="mt-3 space-y-2 text-sm">
+            <li><Link href="/fleet" className="focus-ring hover:text-white">Fleet & Equipment</Link></li>
             <li><Link href="/government-enterprise" className="focus-ring hover:text-white">Government & Enterprise</Link></li>
             <li><Link href="/safety-compliance" className="focus-ring hover:text-white">Safety & Compliance</Link></li>
             <li><Link href="/about" className="focus-ring hover:text-white">About</Link></li>

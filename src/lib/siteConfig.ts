@@ -10,9 +10,9 @@
 // full list of non-boolean placeholders (name, phone, email, address, etc).
 // =============================================================================
 
-export const companyName = "[COMPANY NAME]";
-export const companyShortName = "[COMPANY NAME]"; // used where space is tight (nav, footer)
-export const companyLegalName = "[COMPANY NAME], LLC"; // update once the LLC is formed and named
+export const companyName = "Montana Drone Works";
+export const companyShortName = "Montana Drone Works"; // used where space is tight (nav, footer)
+export const companyLegalName = "Montana Drone Works, LLC"; // update once the LLC is actually formed under this name
 
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example-drone-co.com"; // PLACEHOLDER domain

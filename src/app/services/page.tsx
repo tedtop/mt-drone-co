@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/lib/services-data";
 import { companyName } from "@/lib/siteConfig";
+import { heroImages } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -14,25 +16,23 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-topo relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
-              Services
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Twelve service lines, one FAA-compliant process
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              {companyName} covers a wide range of commercial drone work across
-              Montana — from a single real estate flight to a standing on-call
-              agreement with a public agency. Whatever the brief, every
-              engagement runs through the same flight planning, airspace
-              authorization, and delivery process described below.
-            </p>
-          </div>
+      <PhotoHero image={heroImages.services} py="py-20 sm:py-28">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
+            Services
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Twelve service lines, one FAA-compliant process
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+            {companyName} covers a wide range of commercial drone work across
+            Montana — from a single real estate flight to a standing on-call
+            agreement with a public agency. Whatever the brief, every
+            engagement runs through the same flight planning, airspace
+            authorization, and delivery process described below.
+          </p>
         </div>
-      </section>
+      </PhotoHero>
 
       <Section>
         <SectionHeading

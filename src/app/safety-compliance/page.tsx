@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { CredentialBadge } from "@/components/ui/Badge";
 import { Checklist } from "@/components/ui/Checklist";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { companyName, flags, legalNotes } from "@/lib/siteConfig";
+import { heroImages } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Safety & Compliance",
@@ -32,24 +34,22 @@ const smsPrinciples = [
 export default function SafetyCompliancePage() {
   return (
     <>
-      <section className="bg-topo relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
-              Safety &amp; Compliance
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              A compliance-first operation, stated plainly.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              {companyName} is a new company. Rather than make blanket claims,
-              this page lays out exactly where our certifications, insurance,
-              and safety program stand today, and the framework we commit to
-              operating under as each piece comes online.
-            </p>
-          </div>
+      <PhotoHero image={heroImages.safety} py="py-20 sm:py-28">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
+            Safety &amp; Compliance
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            A compliance-first operation, stated plainly.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+            {companyName} is a new company. Rather than make blanket claims,
+            this page lays out exactly where our certifications, insurance,
+            and safety program stand today, and the framework we commit to
+            operating under as each piece comes online.
+          </p>
         </div>
-      </section>
+      </PhotoHero>
 
       <Section>
         <SectionHeading

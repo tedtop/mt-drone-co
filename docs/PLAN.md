@@ -109,10 +109,38 @@ remaining work.
   (`quotes@yourdomain.com`); setting `RESEND_API_KEY` without first
   verifying a real domain in Resend will silently fail (falls back to
   logging, doesn't crash, but also doesn't deliver — easy to miss).
-- **No real imagery/branding yet** — the site currently uses generic
-  placeholder icons/favicon inherited from `create-next-app`'s default
-  scaffold, which look unfinished for a credibility-focused site; a cheap
-  near-term fix is a simple generated brand mark (not real photography).
+- **Stock photography is generic, not company-specific** — hero/card images
+  (drones, Montana landscapes, utility/industrial subjects) are free stock
+  from Pexels, chosen for visual richness, not real project photos. Keep
+  this distinction intact when adding more imagery: decorative/atmospheric
+  stock is fine, but anything implying "this is our completed work" must
+  stay a labeled placeholder until real.
+
+11. 2026-11-01 — Owner asked to name the company "Montana Drone Company,"
+    which is the exact name of a real competitor researched in
+    `/research/competitors.md` (#1 in that doc). Flagged the trademark/
+    brand-confusion risk via AskUserQuestion; owner chose "tweak it
+    slightly." Landed on **Montana Drone Works** — keeps the owner's naming
+    intent, clearly distinct from the real competitor. Easy to change again
+    later since it's one `siteConfig.ts` value.
+12. 2026-11-01 — Owner felt the site was "too white and empty" and asked for
+    real stock drone photography, richer visual treatment, and a page
+    showing the drone equipment range (entry-level to enterprise). Sourced
+    free, commercially-licensed stock photos from Pexels (no attribution
+    required) rather than scraping competitor sites or using copyrighted
+    manufacturer product photography. Built a `PhotoHero` component (photo
+    background + left-to-right dark gradient, re-verified against WCAG AA
+    with the axe suite after rollout) and added it to every major hero;
+    added thumbnail images to service/city cards; added a new `/fleet` page
+    describing four equipment classes (entry-level, mapping/prosumer,
+    enterprise inspection, sensor payloads) illustrated with generic stock
+    photos and real DJI-class model names in text only — framed honestly
+    (`flags.hasAircraft` still false) as the equipment we plan to operate,
+    not a claimed existing fleet. Added an explicit callout that DJI-class
+    hardware isn't generally NDAA/Blue-UAS compliant, consistent with the
+    Government & Enterprise page's existing procurement-plan language —
+    this was a real accuracy point worth preserving even though the owner's
+    request leaned toward featuring DJI by name.
 
 ## Open questions (need the owner — not blockers for other backlog items)
 

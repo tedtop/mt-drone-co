@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { Checklist } from "@/components/ui/Checklist";
 import { getServiceBySlug, services, type Service } from "@/lib/services-data";
 import { companyLegalName, siteUrl } from "@/lib/siteConfig";
+import { serviceImages } from "@/lib/images";
 
 type RouteParams = { slug: string };
 
@@ -91,26 +93,24 @@ export default async function ServiceDetailPage({
       />
 
       {/* Hero */}
-      <section className="bg-topo relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
-              {categoryLabel[service.category]}
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              {service.title}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              {service.heroDescription}
-            </p>
-            <div className="mt-8">
-              <Button href={quoteHref} variant="primary">
-                Request a Quote
-              </Button>
-            </div>
+      <PhotoHero image={serviceImages[service.slug]} py="py-20 sm:py-28">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
+            {categoryLabel[service.category]}
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            {service.title}
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+            {service.heroDescription}
+          </p>
+          <div className="mt-8">
+            <Button href={quoteHref} variant="primary">
+              Request a Quote
+            </Button>
           </div>
         </div>
-      </section>
+      </PhotoHero>
 
       {/* Ideal for */}
       <Section>

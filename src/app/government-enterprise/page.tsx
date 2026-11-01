@@ -3,6 +3,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Checklist, type ChecklistItem } from "@/components/ui/Checklist";
 import { CredentialBadge } from "@/components/ui/Badge";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import {
   companyLegalName,
   companyName,
@@ -11,6 +12,7 @@ import {
   naicsCodes,
   siteUrl,
 } from "@/lib/siteConfig";
+import { heroImages } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Government and Enterprise",
@@ -108,47 +110,45 @@ export default function GovernmentEnterprisePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
 
-      <section className="bg-topo relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
-              Government and Enterprise
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              On-call UAS surge capacity, built for public-agency and
-              enterprise procurement.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              {companyName} is positioning as an on-call UAS resource for
-              federal, state, tribal, and local agencies, and for enterprise
-              buyers who need FAA-compliant drone capacity without standing
-              up an in-house program. We are early-stage, and we lead with
-              that fact rather than hide it: the checklist below shows
-              exactly what is in place today and what is still in progress
-              toward full contract readiness.
-            </p>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400">
-              That transparency is itself part of the pitch — a vendor who
-              tells you precisely where it stands on insurance, registration,
-              and fleet compliance is one you can plan around with
-              confidence, whether you&apos;re scoping a future solicitation
-              or just getting on our radar early.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="#contract-readiness" variant="primary">
-                See Contract Readiness Checklist
-              </Button>
-              <Button
-                href="#contact"
-                variant="ghost"
-                className="ring-white/30 text-white hover:bg-white/10"
-              >
-                Contact Procurement
-              </Button>
-            </div>
+      <PhotoHero image={heroImages.government} py="py-20 sm:py-28">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
+            Government and Enterprise
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            On-call UAS surge capacity, built for public-agency and
+            enterprise procurement.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+            {companyName} is positioning as an on-call UAS resource for
+            federal, state, tribal, and local agencies, and for enterprise
+            buyers who need FAA-compliant drone capacity without standing
+            up an in-house program. We are early-stage, and we lead with
+            that fact rather than hide it: the checklist below shows
+            exactly what is in place today and what is still in progress
+            toward full contract readiness.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
+            That transparency is itself part of the pitch — a vendor who
+            tells you precisely where it stands on insurance, registration,
+            and fleet compliance is one you can plan around with
+            confidence, whether you&apos;re scoping a future solicitation
+            or just getting on our radar early.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Button href="#contract-readiness" variant="primary">
+              See Contract Readiness Checklist
+            </Button>
+            <Button
+              href="#contact"
+              variant="ghost"
+              className="ring-white/30 text-white hover:bg-white/10"
+            >
+              Contact Procurement
+            </Button>
           </div>
         </div>
-      </section>
+      </PhotoHero>
 
       <Section id="capability-statement">
         <SectionHeading

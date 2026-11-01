@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { companyName } from "@/lib/siteConfig";
+import { heroImages } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About",
@@ -31,24 +33,22 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-topo relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
-              About {companyName}
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              A new company, built deliberately from day one.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              {companyName} doesn&apos;t have a long history to tell you about
-              — we&apos;re a brand-new Montana commercial drone services
-              company. What we can tell you is why we started, how we&apos;re
-              building the operation, and what we&apos;re working toward.
-            </p>
-          </div>
+      <PhotoHero image={heroImages.about} py="py-20 sm:py-28">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
+            About {companyName}
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            A new company, built deliberately from day one.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+            {companyName} doesn&apos;t have a long history to tell you about
+            — we&apos;re a brand-new Montana commercial drone services
+            company. What we can tell you is why we started, how we&apos;re
+            building the operation, and what we&apos;re working toward.
+          </p>
         </div>
-      </section>
+      </PhotoHero>
 
       <Section>
         <SectionHeading

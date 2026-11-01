@@ -3,9 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { PhotoHero } from "@/components/ui/PhotoHero";
 import { cities, getCityBySlug } from "@/lib/cities-data";
 import { getServiceBySlug } from "@/lib/services-data";
 import { companyName } from "@/lib/siteConfig";
+import { cityImages } from "@/lib/images";
 
 type CityPageProps = {
   params: Promise<{ slug: string }>;
@@ -45,32 +47,30 @@ export default async function CityPage({ params }: CityPageProps) {
 
   return (
     <>
-      <section className="bg-topo relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
-              {city.region}
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Drone Services in {city.name}, Montana
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              {city.blurb}
-            </p>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400">
-              {companyName} is Montana-wide from a single base — we don&apos;t
-              have a local office or crew permanently stationed in{" "}
-              {city.name}, but we regularly plan and fly projects in this
-              area and know its airspace and market context.
-            </p>
-            <div className="mt-8">
-              <Button href={`/quote?location=${encodeURIComponent(city.name)}`} variant="primary">
-                Request a Quote for {city.name}
-              </Button>
-            </div>
+      <PhotoHero image={cityImages[city.slug]} py="py-20 sm:py-28">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">
+            {city.region}
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Drone Services in {city.name}, Montana
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+            {city.blurb}
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
+            {companyName} is Montana-wide from a single base — we don&apos;t
+            have a local office or crew permanently stationed in{" "}
+            {city.name}, but we regularly plan and fly projects in this
+            area and know its airspace and market context.
+          </p>
+          <div className="mt-8">
+            <Button href={`/quote?location=${encodeURIComponent(city.name)}`} variant="primary">
+              Request a Quote for {city.name}
+            </Button>
           </div>
         </div>
-      </section>
+      </PhotoHero>
 
       {city.nearbyNotes && city.nearbyNotes.length > 0 ? (
         <Section>
