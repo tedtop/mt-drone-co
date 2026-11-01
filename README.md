@@ -81,9 +81,10 @@ not exist yet — once you have a real capability statement, drop the PDF in
 `public/capability-statement.pdf` and flip the flag.
 
 ### Favicon / app icons
-`create-next-app`'s default `public/*.svg` Next.js/Vercel logo files and the
-default favicon are still in `public/`. Replace with real brand assets
-(favicon, apple-touch-icon, etc) before launch.
+`src/app/icon.tsx` and `src/app/apple-icon.tsx` generate a simple navy/amber
+"MT" monogram brand mark (no stock imagery) so the site doesn't ship with
+`create-next-app`'s default Next.js/Vercel logos. Replace with a real
+designed icon once brand assets exist.
 
 ## Environment variables
 
@@ -108,13 +109,13 @@ which is a placeholder and will fail to deliver until you replace
   instances, so it won't stop a determined or distributed spammer. If this
   form gets real traffic, move to a durable store (e.g. Upstash Redis) or a
   managed form-spam service.
-- **Analytics scripts aren't actually wired up.** `siteConfig.ts` has
-  `analytics.plausibleDomain` / `analytics.vercelAnalytics` flags read from
-  env vars, but no script tag or `@vercel/analytics` import currently
-  consumes them — add that when you're ready to turn analytics on.
-- **Footer social icons aren't rendered yet.** `siteConfig.ts` has empty
-  `social.linkedin/instagram/youtube` strings but `Footer.tsx` doesn't yet
-  render icons from them — add icon rendering when real accounts exist.
+- **Analytics are wired up but off by default.** `src/app/layout.tsx` loads
+  a Plausible `<script>` when `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set, and
+  `@vercel/analytics`'s `<Analytics />` when `NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS="true"`.
+  Neither loads with those env vars unset (the current state).
+- **Footer social icons render automatically** once you fill in any of
+  `social.linkedin` / `instagram` / `youtube` in `siteConfig.ts` — currently
+  empty, so no icons show.
 - **Privacy policy is a template**, flagged as such on the page itself —
   have an attorney review before launch, especially once analytics/email
   vendors are finalized.

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { companyLegalName, companyName, contact, siteUrl } from "@/lib/siteConfig";
+import { analytics, companyLegalName, companyName, contact, siteUrl } from "@/lib/siteConfig";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -80,6 +82,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        {analytics.plausibleDomain ? (
+          <Script
+            defer
+            data-domain={analytics.plausibleDomain}
+            src="https://plausible.io/js/script.js"
+            strategy="afterInteractive"
+          />
+        ) : null}
+        {analytics.vercelAnalytics ? <Analytics /> : null}
       </body>
     </html>
   );
