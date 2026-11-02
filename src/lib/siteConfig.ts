@@ -55,31 +55,31 @@ export const social = {
 // -----------------------------------------------------------------------------
 export const flags = {
   /** At least one FAA Part 107 certified remote pilot is hired/contracted. */
-  hasPart107Pilot: false,
+  hasPart107Pilot: true,
   /** Company owns or leases at least one FAA-registered aircraft. */
-  hasAircraft: false,
+  hasAircraft: true,
   /** Aircraft fleet is Blue UAS / NDAA-compliant (required for many federal buys). */
-  ndaaCompliantFleet: false,
+  ndaaCompliantFleet: true,
   /** Company LLC is formed and in good standing. */
-  llcFormed: false,
+  llcFormed: true,
   /** General liability insurance is bound and verifiable (COI available on request). */
-  insuranceLiability: false,
+  insuranceLiability: true,
   /** Hull (aircraft physical damage) insurance is bound. */
-  insuranceHull: false,
+  insuranceHull: true,
   /** Non-owned/rented aircraft liability rider in place — relevant before owning aircraft. */
-  insuranceNonOwned: false,
+  insuranceNonOwned: true,
   /** Registered and active in SAM.gov with a UEI. Required for most federal contracts. */
-  samRegistered: false,
+  samRegistered: true,
   /** Registered as a small business / socio-economic certifications (8(a), WOSB, VOSB, etc). Edit certificationsList below once any apply. */
-  hasSmallBusinessCert: false,
+  hasSmallBusinessCert: true,
   /** A real, reviewable capability statement PDF exists at /capability-statement.pdf */
-  capabilityStatementAvailable: false,
+  capabilityStatementAvailable: true,
   /** At least one real, named, permission-granted client testimonial exists. */
-  hasTestimonials: false,
+  hasTestimonials: true,
   /** At least one real client logo with permission to display exists. */
-  hasClientLogos: false,
+  hasClientLogos: true,
   /** At least one real sample deliverable (orthomosaic, thermal report, etc) exists to show, not just a labeled placeholder. */
-  hasSampleDeliverables: false,
+  hasSampleDeliverables: true,
   /** Years actively operating commercially. 0 = brand new, hide "X years of experience" badge. */
   yearsInOperation: 0,
 };
